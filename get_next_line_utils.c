@@ -6,7 +6,7 @@
 /*   By: mmohd-fa <mmohd-fa@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:12:09 by mmohd-fa          #+#    #+#             */
-/*   Updated: 2023/03/14 13:33:59 by mmohd-fa         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:15:54 by mmohd-fa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*ft_strjoin(char *left_str, char *buff)
 	free(left_str);
 	return (str);
 }
-char	*ft_get_line(char *left_str)
+char	*readfirstline(char *left_str)
 {
 	int		i;
 	char	*str;
@@ -97,7 +97,7 @@ char	*ft_get_line(char *left_str)
 	return (str);
 }
 
-char	*ft_new_left_str(char *left_str)
+char	*newline(char *left_str)
 {
 	int		i;
 	int		j;

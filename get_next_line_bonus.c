@@ -6,13 +6,13 @@
 /*   By: mmohd-fa <mmohd-fa@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:12:52 by mmohd-fa          #+#    #+#             */
-/*   Updated: 2023/03/14 13:12:52 by mmohd-fa         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:05:47 by mmohd-fa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_read_to_left_str(int fd, char *left_str)
+char	*readstr(int fd, char *left_str)
 {
 	char	*buff;
 	int		rd_bytes;
@@ -43,10 +43,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	left_str[fd] = ft_read_to_left_str(fd, left_str[fd]);
+	left_str[fd] = readstr(fd, left_str[fd]);
 	if (!left_str[fd])
 		return (NULL);
-	line = ft_get_line(left_str[fd]);
-	left_str[fd] = ft_new_left_str(left_str[fd]);
+	line = readfirstline(left_str[fd]);
+	left_str[fd] = newline(left_str[fd]);
 	return (line);
 }

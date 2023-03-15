@@ -6,30 +6,30 @@
 /*   By: mmohd-fa <mmohd-fa@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 03:20:47 by mmohd-fa          #+#    #+#             */
-/*   Updated: 2023/03/14 13:24:12 by mmohd-fa         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:08:13 by mmohd-fa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_read_to_left_str(int fd, char *left_str)
+char	*readstr(int fd, char *left_str)
 {
 	char	*buff;
-	int		rd_bytes;
+	int		bytes;
 
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 		return (NULL);
-	rd_bytes = 1;
-	while (!ft_strchr(left_str, '\n') && rd_bytes != 0)
+	bytes = 1;
+	while (!ft_strchr(left_str, '\n') && bytes != 0)
 	{
-		rd_bytes = read(fd, buff, BUFFER_SIZE);
-		if (rd_bytes == -1)
+		bytes = read(fd, buff, BUFFER_SIZE);
+		if (bytes == -1)
 		{
 			free(buff);
 			return (NULL);
 		}
-		buff[rd_bytes] = '\0';
+		buff[bytes] = '\0';
 		left_str = ft_strjoin(left_str, buff);
 	}
 	free(buff);
@@ -43,10 +43,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	left_str = ft_read_to_left_str(fd, left_str);
+	left_str = readstr(fd, left_str);
 	if (!left_str)
 		return (NULL);
-	line = ft_get_line(left_str);
-	left_str = ft_new_left_str(left_str);
+	line = readfirstline(left_str);
+	left_str = newline(left_str);
 	return (line);
 }

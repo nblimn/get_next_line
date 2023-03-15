@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus_utils.h                        :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmohd-fa <mmohd-fa@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:43:27 by mmohd-fa          #+#    #+#             */
-/*   Updated: 2023/03/14 13:44:32 by mmohd-fa         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:05:47 by mmohd-fa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*ft_strjoin(char *left_str, char *buff)
 	return (str);
 }
 
-char	*ft_get_line(char *left_str)
+char	*readfirstline(char *left_str)
 {
 	int		i;
 	char	*str;
@@ -98,7 +98,7 @@ char	*ft_get_line(char *left_str)
 	return (str);
 }
 
-char	*ft_new_left_str(char *left_str)
+char	*newline(char *left_str)
 {
 	int		i;
 	int		j;
